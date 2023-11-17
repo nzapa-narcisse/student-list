@@ -3,7 +3,7 @@ services:
   web:
     image: php:apache
     environment:
-      - USERNAME=spride
+      - USERNAME=toto
       - PASSWORD=python
     volumes:
       - ./website:/var/www/html

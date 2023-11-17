@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    image: php:apache
+    environment:
+      - USERNAME=spride
+      - PASSWORD=python
+    volumes:
+      - ./website:/var/www/html
+    depends_on:
+      - api
+    ports:
+      - 80:80
+
+  api:
+    image: nzapa/student-list:0.1
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    volumes:
+      - ./student_age.json:/data/student_age.json
+    ports:
+      - 5000:5000

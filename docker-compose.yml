@@ -13,7 +13,7 @@ services:
       - 80:80
 
   api:
-    image: nzapa/student-list:0.1
+    image: localhost:5001/student-list:0.1
 #    build:
 #      context: .
 #      dockerfile: Dockerfile

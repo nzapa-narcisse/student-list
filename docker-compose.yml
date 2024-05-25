@@ -17,8 +17,8 @@ services:
   api:
     image: localhost:5001/student-list:0.1
     container_name: pozos_api
-    ports:
-      - 4000:5000
+#    ports:
+#      - 4000:5000
 #    build:
 #      context: .
 #      dockerfile: Dockerfile

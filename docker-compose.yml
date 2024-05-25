@@ -2,22 +2,30 @@ version: '3'
 services:
   web:
     image: php:apache
+    depends_on:
+      - api
+    ports:
+      - 80:80
     environment:
       - USERNAME=toto
       - PASSWORD=python
     volumes:
       - ./website:/var/www/html
-    depends_on:
-      - api
-    ports:
-      - 80:80
-
+    
+    networks:
+      - pozos_network
   api:
     image: localhost:5001/student-list:0.1
+    container_name: pozos_api
+    ports:
+      - 4000:5000
 #    build:
 #      context: .
 #      dockerfile: Dockerfile
     volumes:
       - ./simple_api/student_age.json:/data/student_age.json
-    ports:
-      - 5000:5000
+    
+    networks:
+      - pozos_network
+networks:
+  pozos_network:
